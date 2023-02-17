@@ -1,4 +1,10 @@
 {
   "name": "asit_editor_v6",
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.3.0",
+  "dependencies": {
+    "gh-pages": "^5.0.0"
+  },
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  }
 }
