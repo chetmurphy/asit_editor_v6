@@ -123,6 +123,9 @@ function handleCmd_2(cmd, data) {
         else if (cmd == 'file') {
             sendToFusion(cmd, data, "");
         }
+        else if (cmd == 'modify') {
+            sendToFusion(cmd, data, "");
+        }
     }
     return handle;
 }
