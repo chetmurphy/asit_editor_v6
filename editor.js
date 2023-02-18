@@ -64,7 +64,7 @@ window.fusionJavaScriptHandler =
     }
 };
 
-function sendToFusion(cmd, selector, _data) {
+function sendToFusion(cmd, selector, data) {
 
     try {
         if (cmd == 'autosave') {
