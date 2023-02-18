@@ -87,6 +87,21 @@ function sendToFusion(cmd, selector, data) {
                 });       
         }
 
+        if (cmd == 'modify') {
+            adsk.fusionSendData(cmd + '.' + selector, encode(data))
+             .then((result) => {
+                 if (result.length > 0) {
+                     var r = JSON.parse(result);
+                     if (r.status == 'OK') {
+                         editor.setValue(decode(r.data))
+
+                     }
+
+                 }
+                 return "OK";
+             });       
+        }
+
         if (cmd == 'commit') {
             adsk.fusionSendData(cmd + '.' + selector, encode(data));
                 return "OK";
