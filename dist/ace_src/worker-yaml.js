@@ -1364,22 +1364,42 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                 function lint(content, opts, cb) {
                     // Type = require('./js-yaml/type');
                     let asit = new yaml.Type('!asit', { kind: 'scalar' });
-                    let component = new yaml.Type('!component', { kind: 'mapping' });
-                    let point3d = new yaml.Type('!point3d', { kind: 'mapping' });
-                    let value = new yaml.Type('!value', { kind: 'scalar' });
-                    let variable = new yaml.Type('!variable', { kind: 'scalar' });
-                    let script = new yaml.Type('!script', { kind: 'scalar' });
-                    let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
                     let body = new yaml.Type('!body', { kind: 'mapping' });
-                    let insert = new yaml.Type('!insert', { kind: 'scalar' });
+                    let circles = new yaml.Type('!circles:', { kind: 'mapping' });
+                    let component = new yaml.Type('!component', { kind: 'mapping' });
+                    let define = new yaml.Type('!define', { kind: 'scalar' });
+                    let define_tag = new yaml.Type('!define_tag', { kind: 'mapping' });
                     let extrude = new yaml.Type('!extrude', { kind: 'mapping' });
                     let from = new yaml.Type('!from', { kind: 'scalar' });
-                    let define = new yaml.Type('!define', { kind: 'scalar' });
-                    let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
-                    let circles = new yaml.Type('!circles:', { kind: 'mapping' });
                     let ifs = new yaml.Type('!if', { kind: 'mapping' });
-                    let define_tag = new yaml.Type('!define_tag', { kind: 'mapping' });
-                    let ASIT_SCHEMA = yaml.Schema.create([asit, component, point3d, value, variable, script, sketch, circles, body, insert, extrude, from, define, tbd, ifs, define_tag]);
+                    let insert = new yaml.Type('!insert', { kind: 'scalar' });
+                    let point3d = new yaml.Type('!point3d', { kind: 'mapping' });
+                    let script = new yaml.Type('!script', { kind: 'scalar' });
+                    let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
+                    let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
+                    let token = new yaml.Type('!tbd', { kind: 'scalar' });
+                    let value = new yaml.Type('!value', { kind: 'scalar' });
+                    let variable = new yaml.Type('!variable', { kind: 'scalar' });
+
+                    let ASIT_SCHEMA = yaml.Schema.create([
+                        asit, 
+                        body, 
+                        circles, 
+                        component, 
+                        define_tag,
+                        define, 
+                        extrude, 
+                        from, 
+                        ifs, 
+                        insert, 
+                        point3d, 
+                        script, 
+                        sketch, 
+                        tbd, 
+                        token,
+                        value, 
+                        variable 
+                    ]);
 
                     var options = merge({}, DEFAULT_LINT_OPTION, opts);
                     try {

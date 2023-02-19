@@ -1,6 +1,3 @@
-
-
-
 function decode(data) {
     return data.replace(/\f/g, '\n');
 }
@@ -12,20 +9,14 @@ function encode(data) {
 }
 
 function next() {
-
     backdoor("backdoor", "", "");
-
 }
 
 function back() {
 }
 
-
 function sidebar() {
-
 }
-
-
 
 window.onerror = (event, source, lineno, colno, error) => { console.log('Editor Error: ' + JSON.stringify(event) )}; 
 
@@ -41,97 +32,18 @@ window.fusionJavaScriptHandler =
                 
             }
             else if (action == 'replace') {
-                // session = ace.createEditSession("", "ace/mode/asit");
-                // editor.setSession(session);
-                // session.on('change', autosave);
-
-                //ignore_on_change = true;
+                ignore_on_change = true;
                 editor.setValue(decoded);
-                //ignore_on_change = false;
-
+                ignore_on_change = false;
             }
             else if (action == 'open') {
-                // Update a paragraph with the data passed in.
-                // var uint8array = new TextEncoder("utf-8").encode("Plain Text");
-                // var string = data.replace(/\f/g, '\n'); //new TextDecoder().decode(data);
-
                 session = ace.createEditSession("", "ace/mode/asit");
-
-                // prevent annotations
-                //f = session.setAnnotations
-                //session.setAnnotations = function (data) { console.log(data); }
-
                 editor.setSession(session);
                 session.on('change', autosave);
 
-                ignore_on_change = true;
-
-                console.log("new###############################################");
-                console.log(decoded);
-                console.log("###############################################");
-
+                ignore_on_change = true
                 editor.setValue(decoded);
-
                 ignore_on_change = false;
-
-                console.log('created new session');
-
-            }
-            else if (action == 'error') {
-                // Update a paragraph with the data passed in.
-                // var uint8array = new TextEncoder("utf-8").encode("Plain Text");
-                // TBD annotate
-
-            }
-            else if (action == 'edit') {
-                if (data == 'cut')
-                    cmd = editor.commands["cut"];
-                if (cmd)
-                    cmd.exec()
-                console.log('cut')
-
-
-
-            }
-            else if (action == 'warn') {
-                // Update a paragraph with the data passed in.
-                // var uint8array = new TextEncoder("utf-8").encode("Plain Text");
-                // TBD annotate
-
-            }
-            else if (action == 'info') {
-                // Update a paragraph with the data passed in.
-                // var uint8array = new TextEncoder("utf-8").encode("Plain Text");
-                // TBD annotate
-            }
-            else if (action == 'update') {
-                // Update a paragraph with the data passed in.
-                // var uint8array = new TextEncoder("utf-8").encode("Plain Text");
-                // console.log("update###############################################");
-                // console.log(action);
-                // console.log("###############################################");
-                // console.log(data);
-                // console.log("###############################################");
-                // var string = data.replace(/\f/g, '\n'); //new TextDecoder().decode(data);
-                // console.log(string);
-
-                ignore_on_change = true;
-
-                editor.setValue(decoded);
-
-                ignore_on_change = false;
-
-            }
-            else if (action == 'solved') {
-                // Update a paragraph with the data passed in.
-                // var uint8array = new TextEncoder("utf-8").encode("Plain Text");
-                // TBD  list of values to annotate
-            }
-            else if (action == 'dependencies') {
-                // Update a paragraph with the data passed in.
-                // var uint8array = new TextEncoder("utf-8").encode("Plain Text");
-                session = ace.createEditSession(decoded, "ace/mode/json");
-                editor.setSession(session)
             }
             else if (action == 'debugger') {
                 debugger;
@@ -142,7 +54,6 @@ window.fusionJavaScriptHandler =
         } catch (e) {
             console.log(e);
             console.log('exception caught with command: ' + action + ', data: ' + decoded);
-
         }
         // Build up JSON return string.
         var result = {};
@@ -153,35 +64,16 @@ window.fusionJavaScriptHandler =
     }
 };
 
-
-// const fusionSendData = function (action, data) {
-//     return new Promise(function (resolve, reject) {
-//         try {
-//             neutronJavaScriptObject.executeQuery(action, data, function (response) {
-//                 resolve(response);
-//             });
-//         } catch (e) { result = e.toString(); reject(result) }
-//     });
-// };
-
-var _result = ""
-
-function sendToFusion(cmd, selector, _data) {
-    
-    // console.log(window);
-    var args = {
-        selector: selector,
-        data: encode(_data)
-    };
+function sendToFusion(cmd, selector, data) {
 
     try {
         if (cmd == 'autosave') {
-            adsk.fusionSendData(cmd, JSON.stringify(args));   
+            adsk.fusionSendData(cmd, encode(data));   
             return "OK";
         }
 
         if (cmd == 'file') {
-            adsk.fusionSendData(cmd, JSON.stringify(args))
+            adsk.fusionSendData(cmd + '.' + selector, encode(data))
                 .then((result) => {
                     if (result.length > 0) {
                         var r = JSON.parse(result);
@@ -195,23 +87,25 @@ function sendToFusion(cmd, selector, _data) {
                 });       
         }
 
-        if (cmd == 'commit') {
-            adsk.fusionSendData(cmd, JSON.stringify(args));
-                return "OK";
+        if (cmd == 'modify') {
+            adsk.fusionSendData(cmd + '.' + selector, encode(data))
+             .then((result) => {
+                 if (result.length > 0) {
+                     var r = JSON.parse(result);
+                     if (r.status == 'OK') {
+                         editor.setValue(decode(r.data))
+
+                     }
+
+                 }
+                 return "OK";
+             });       
         }
 
-       
-
-        // adsk.fusionSendData(cmd, JSON.stringify(args))
-        //     .then((result) => {
-        //             var r = JSON.parse(result);
-        //             if (args.selector == 'open' && r.status == 'OK') {
-
-        //                 editor.setValue(decode(r.data));
-        //             }
-        //             console.log("Resolving Promise ${cmd}->${selector}: " + "'${r.status}'");
-        //             return;
-        //         });
+        if (cmd == 'commit') {
+            adsk.fusionSendData(cmd + '.' + selector, encode(data));
+                return "OK";
+        }
     }
     catch (error) {
         console.log(`sendToFusion error ${error}`);
@@ -229,6 +123,9 @@ function handleCmd_2(cmd, data) {
         else if (cmd == 'file') {
             sendToFusion(cmd, data, "");
         }
+        else if (cmd == 'modify') {
+            sendToFusion(cmd, data, "");
+        }
     }
     return handle;
 }
@@ -236,7 +133,6 @@ function handleCmd_2(cmd, data) {
 function handleCmd(cmd, data) {
     window.requestIdleCallback(handleCmd_2(cmd, data), { timeout: 200 })
 }
-
 
 function autosave_2() {
     var val = editor.getSession().getValue();
@@ -246,13 +142,10 @@ function autosave_2() {
     }
 }
 
-
-
 function autosave() //writes in <div> with id=output
 {
     window.requestIdleCallback(autosave_2, { timeout: 200 })
 }
-
 
 // ace.config.set('basePath', '../ace_src');
 
