@@ -1376,6 +1376,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let point3d = new yaml.Type('!point3d', { kind: 'mapping' });
                     let script = new yaml.Type('!script', { kind: 'scalar' });
                     let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
+                    let system = new yaml.Type('!system', { kind: 'mapping' });
                     let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
                     let token = new yaml.Type('!token', { kind: 'scalar' });
                     let value = new yaml.Type('!value', { kind: 'scalar' });
@@ -1395,6 +1396,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                         point3d, 
                         script, 
                         sketch, 
+                        system,
                         tbd, 
                         token,
                         value, 
