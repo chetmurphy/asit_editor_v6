@@ -1377,7 +1377,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let script = new yaml.Type('!script', { kind: 'scalar' });
                     let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
                     let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
-                    let token = new yaml.Type('!tbd', { kind: 'scalar' });
+                    let token = new yaml.Type('!token', { kind: 'scalar' });
                     let value = new yaml.Type('!value', { kind: 'scalar' });
                     let variable = new yaml.Type('!variable', { kind: 'scalar' });
 
