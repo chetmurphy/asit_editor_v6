@@ -156,7 +156,8 @@ editor.setOptions({
     dragEnabled: true,
     enableBasicAutocompletion: true,
     enableSnippets: true,
-    enableLiveAutocompletion: false
+    enableLiveAutocompletion: false,
+    autoScrollEditorIntoView: true
     
 })
 
