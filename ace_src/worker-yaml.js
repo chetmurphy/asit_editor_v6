@@ -1367,6 +1367,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let body = new yaml.Type('!body', { kind: 'mapping' });
                     let circles = new yaml.Type('!circles:', { kind: 'mapping' });
                     let component = new yaml.Type('!component', { kind: 'mapping' });
+                    let const_ = new yaml.Type('!const', { kind: 'scalar' });
                     let define = new yaml.Type('!define', { kind: 'scalar' });
                     let define_tag = new yaml.Type('!define_tag', { kind: 'mapping' });
                     let extrude = new yaml.Type('!extrude', { kind: 'mapping' });
@@ -1387,6 +1388,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                         body, 
                         circles, 
                         component, 
+                        const_,
                         define_tag,
                         define, 
                         extrude, 
