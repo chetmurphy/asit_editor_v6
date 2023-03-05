@@ -157,7 +157,8 @@ editor.setOptions({
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: false,
-    autoScrollEditorIntoView: true
+    autoScrollEditorIntoView: true,
+    vScrollBarAlwaysVisible: true
     
 })
 
