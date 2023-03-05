@@ -1363,7 +1363,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
 
                 function lint(content, opts, cb) {
                     // Type = require('./js-yaml/type');
-                    let asit = new yaml.Type('!asit', { kind: 'scalar' });
+                    let asit = new yaml.Type('!asit', { kind: 'mapping' });
                     let body = new yaml.Type('!body', { kind: 'mapping' });
                     let circles = new yaml.Type('!circles:', { kind: 'mapping' });
                     let component = new yaml.Type('!component', { kind: 'mapping' });
@@ -1374,10 +1374,12 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let from = new yaml.Type('!from', { kind: 'scalar' });
                     let ifs = new yaml.Type('!if', { kind: 'mapping' });
                     let insert = new yaml.Type('!insert', { kind: 'scalar' });
+                    let object = new yaml.Type('!object', { kind: 'mapping' });
                     let point3d = new yaml.Type('!point3d', { kind: 'mapping' });
                     let rotate = new yaml.Type('!rotate', { kind: 'mapping' });
                     let script = new yaml.Type('!script', { kind: 'scalar' });
                     let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
+                    let struct = new yaml.Type('!struct', { kind: 'mapping' });
                     let system = new yaml.Type('!system', { kind: 'mapping' });
                     let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
                     let token = new yaml.Type('!token', { kind: 'scalar' });
@@ -1397,10 +1399,12 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                         from, 
                         ifs, 
                         insert, 
+                        object,
                         point3d, 
                         rotate,
                         script, 
                         sketch, 
+                        struct,
                         system,
                         tbd, 
                         token,
