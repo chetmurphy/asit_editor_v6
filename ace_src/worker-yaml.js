@@ -1370,6 +1370,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let const_ = new yaml.Type('!const', { kind: 'scalar' });
                     let define = new yaml.Type('!define', { kind: 'scalar' });
                     let define_tag = new yaml.Type('!define_tag', { kind: 'mapping' });
+                    let document = new yaml.Type('!document', { kind: 'mapping' });
                     let extrude = new yaml.Type('!extrude', { kind: 'mapping' });
                     let from = new yaml.Type('!from', { kind: 'scalar' });
                     let ifs = new yaml.Type('!if', { kind: 'mapping' });
@@ -1395,6 +1396,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                         const_,
                         define_tag,
                         define, 
+                        document,
                         extrude, 
                         from, 
                         ifs, 
