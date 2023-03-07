@@ -1379,7 +1379,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let point3d = new yaml.Type('!point3d', { kind: 'mapping' });
                     let rotate = new yaml.Type('!rotate', { kind: 'mapping' });
                     let script = new yaml.Type('!script', { kind: 'scalar' });
-                    //let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
+                    let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
                     let struct = new yaml.Type('!struct', { kind: 'mapping' });
                     let system = new yaml.Type('!system', { kind: 'mapping' });
                     let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
@@ -1388,7 +1388,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let value = new yaml.Type('!value', { kind: 'scalar' });
                     let variable = new yaml.Type('!variable', { kind: 'scalar' });
 
-                    let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
+                    let sketchDot = new yaml.Type('!sketch.', { kind: 'mapping', multi: true });
 
                     let ASIT_SCHEMA = yaml.Schema.create([
                         asit, 
@@ -1407,7 +1407,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                         point3d, 
                         rotate,
                         script, 
-                        //sketch, 
+                        sketch, 
                         struct,
                         system,
                         tbd, 
@@ -1416,7 +1416,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                         value, 
                         variable,
 
-                        sketch
+                        sketchDot
                     ]);
 
                     var options = merge({}, DEFAULT_LINT_OPTION, opts);
