@@ -1388,7 +1388,7 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     let value = new yaml.Type('!value', { kind: 'scalar' });
                     let variable = new yaml.Type('!variable', { kind: 'scalar' });
 
-                    let dot = new yaml.Type('!.', { kind: 'mapping', multi: true, construct: });
+                    let dot = new yaml.Type('!.', { kind: 'mapping'});
 
                     let ASIT_SCHEMA = yaml.Schema.create([
                         asit, 
