@@ -156,9 +156,9 @@ editor.setOptions({
     dragEnabled: true,
     enableBasicAutocompletion: true,
     enableSnippets: true,
-    enableLiveAutocompletion: false
-    // autoScrollEditorIntoView: true,
-    // vScrollBarAlwaysVisible: true
+    enableLiveAutocompletion: true,
+    autoScrollEditorIntoView: true,
+    vScrollBarAlwaysVisible: true
     
 })
 
