@@ -31,6 +31,11 @@ window.fusionJavaScriptHandler =
             if (action == 'response') {
                 
             }
+            else if (action == 'init_asit') {
+                window.asit_types = decoded
+                session = ace.createEditSession("", "ace/mode/asit");
+                editor.setSession(session);
+            }
             else if (action == 'replace') {
                 ignore_on_change = true;
                 editor.setValue(decoded);

@@ -1363,61 +1363,68 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
 
                 function lint(content, opts, cb) {
                     // Type = require('./js-yaml/type');
-                    let asit = new yaml.Type('!asit', { kind: 'mapping' });
-                    let body = new yaml.Type('!body', { kind: 'mapping' });
-                    let circles = new yaml.Type('!circles:', { kind: 'mapping' });
-                    let component = new yaml.Type('!component', { kind: 'mapping' });
-                    let const_ = new yaml.Type('!const', { kind: 'scalar' });
-                    let define = new yaml.Type('!define', { kind: 'scalar' });
-                    let define_tag = new yaml.Type('!define_tag', { kind: 'mapping' });
-                    let document = new yaml.Type('!document', { kind: 'mapping' });
-                    let extrude = new yaml.Type('!extrude', { kind: 'mapping' });
-                    let from = new yaml.Type('!from', { kind: 'scalar' });
-                    let ifs = new yaml.Type('!if', { kind: 'mapping' });
-                    let insert = new yaml.Type('!insert', { kind: 'scalar' });
-                    let object = new yaml.Type('!object', { kind: 'mapping' });
-                    let point3d = new yaml.Type('!point3d', { kind: 'mapping' });
-                    let rotate = new yaml.Type('!rotate', { kind: 'mapping' });
-                    let script = new yaml.Type('!script', { kind: 'scalar' });
-                    let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
-                    let struct = new yaml.Type('!struct', { kind: 'mapping' });
-                    let system = new yaml.Type('!system', { kind: 'mapping' });
-                    let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
-                    let token = new yaml.Type('!token', { kind: 'scalar' });
-                    let translate = new yaml.Type('!translate', { kind: 'mapping' });
-                    let value = new yaml.Type('!value', { kind: 'scalar' });
-                    let variable = new yaml.Type('!variable', { kind: 'scalar' });
+                    // let asit = new yaml.Type('!asit', { kind: 'mapping' });
+                    // let body = new yaml.Type('!body', { kind: 'mapping' });
+                    // let circles = new yaml.Type('!circles:', { kind: 'mapping' });
+                    // let component = new yaml.Type('!component', { kind: 'mapping' });
+                    // let const_ = new yaml.Type('!const', { kind: 'scalar' });
+                    // let define = new yaml.Type('!define', { kind: 'scalar' });
+                    // let define_tag = new yaml.Type('!define_tag', { kind: 'mapping' });
+                    // let document = new yaml.Type('!document', { kind: 'mapping' });
+                    // let extrude = new yaml.Type('!extrude', { kind: 'mapping' });
+                    // let from = new yaml.Type('!from', { kind: 'scalar' });
+                    // let ifs = new yaml.Type('!if', { kind: 'mapping' });
+                    // let insert = new yaml.Type('!insert', { kind: 'scalar' });
+                    // let object = new yaml.Type('!object', { kind: 'mapping' });
+                    // let point3d = new yaml.Type('!point3d', { kind: 'mapping' });
+                    // let rotate = new yaml.Type('!rotate', { kind: 'mapping' });
+                    // let script = new yaml.Type('!script', { kind: 'scalar' });
+                    // let sketch = new yaml.Type('!sketch', { kind: 'mapping' });
+                    // let struct = new yaml.Type('!struct', { kind: 'mapping' });
+                    // let system = new yaml.Type('!system', { kind: 'mapping' });
+                    // let tbd = new yaml.Type('!tbd', { kind: 'scalar' });
+                    // let token = new yaml.Type('!token', { kind: 'scalar' });
+                    // let translate = new yaml.Type('!translate', { kind: 'mapping' });
+                    // let value = new yaml.Type('!value', { kind: 'scalar' });
+                    // let variable = new yaml.Type('!variable', { kind: 'scalar' });
 
-                    let dot = new yaml.Type('!.', { kind: 'mapping'});
+                    // let dot = new yaml.Type('!.', { kind: 'mapping'});
 
-                    let ASIT_SCHEMA = yaml.Schema.create([
-                        asit, 
-                        body, 
-                        circles, 
-                        component, 
-                        const_,
-                        define_tag,
-                        define, 
-                        document,
-                        extrude, 
-                        from, 
-                        ifs, 
-                        insert, 
-                        object,
-                        point3d, 
-                        rotate,
-                        script, 
-                        sketch, 
-                        struct,
-                        system,
-                        tbd, 
-                        token,
-                        translate,
-                        value, 
-                        variable,
+                    // let ASIT_SCHEMA = yaml.Schema.create([
+                    //     asit, 
+                    //     body, 
+                    //     circles, 
+                    //     component, 
+                    //     const_,
+                    //     define_tag,
+                    //     define, 
+                    //     document,
+                    //     extrude, 
+                    //     from, 
+                    //     ifs, 
+                    //     insert, 
+                    //     object,
+                    //     point3d, 
+                    //     rotate,
+                    //     script, 
+                    //     sketch, 
+                    //     struct,
+                    //     system,
+                    //     tbd, 
+                    //     token,
+                    //     translate,
+                    //     value, 
+                    //     variable,
 
-                        dot
-                    ]);
+                    //     dot
+                    // ]);
+
+                    types = [];
+                    for (index = 0, length = window.asit_types.length; index < length; index += 1) {
+                        let data = window.asit_types[index];
+                        types[index] = new yaml.Type(data.tag, { kind: data.kind });
+                    }
+                    let ASIT_SCHEMA = yaml.Schema.create(types);
 
                     var options = merge({}, DEFAULT_LINT_OPTION, opts);
                     try {
