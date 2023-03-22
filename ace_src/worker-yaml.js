@@ -1,5 +1,5 @@
 "no use strict";
-var asit_types = window.asit_types;
+
 !(function (window) {
     if (typeof window.window != "undefined" && window.document)
         return;
@@ -1420,11 +1420,11 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     //     dot
                     // ]);
 
-                    types = [];
-                    if (asit_types) {
+                    let types = [];
+                    if (window.asit_types != null) {
                         console.log('asit_types defined');
-                        for (index = 0, length = asit_types.length; index < length; index += 1) {
-                            let data = asit_types[index];
+                        for (index = 0, length = window.asit_types.length; index < length; index += 1) {
+                            let data = window.asit_types[index];
                             types[index] = new yaml.Type(data.tag, { kind: data.kind });
                         }
                     }
