@@ -38,13 +38,15 @@
     </style>
 
     <script>
-    window.onload = function () {
-        var adskWaiter = setInterval(function () {     
-          if (window.adsk) {
-            clearInterval(adskWaiter);
-          };
-        }, 500);
-      }
+        window.asit_types = new Array();
+        console.log("asit_types: " + window.asit_types)
+        window.onload = function () {
+            var adskWaiter = setInterval(function () {     
+            if (window.adsk) {
+                clearInterval(adskWaiter);
+            };
+            }, 500);
+        }
     </script>
 
     </head>
