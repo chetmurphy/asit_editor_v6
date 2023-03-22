@@ -1420,9 +1420,12 @@ define("ace/mode/yaml/yaml-lint", [], function (require, exports, module) {
                     // ]);
 
                     types = [];
-                    for (index = 0, length = window.asit_types.length; index < length; index += 1) {
-                        let data = window.asit_types[index];
-                        types[index] = new yaml.Type(data.tag, { kind: data.kind });
+                    if (window.asit_types) {
+                        console.log('window.asit_types defined');
+                        for (index = 0, length = window.asit_types.length; index < length; index += 1) {
+                            let data = window.asit_types[index];
+                            types[index] = new yaml.Type(data.tag, { kind: data.kind });
+                        }
                     }
                     let ASIT_SCHEMA = yaml.Schema.create(types);
 

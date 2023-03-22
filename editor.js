@@ -1,3 +1,5 @@
+window.asit_types = new Array();
+
 function decode(data) {
     return data.replace(/\f/g, '\n');
 }
