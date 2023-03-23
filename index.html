@@ -16,16 +16,16 @@
         };
             
 
-        #editor {
-            position: relative;
-            top: 5px;
-            width: 500px;
-            height: 500px;
-            padding: 0px;
-            };
+        #editor { 
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 30;
+        }
 
 
-        .ace-ayu-light .ace_variable.ace_name {
+        <!-- .ace-ayu-light .ace_variable.ace_name {
             font-style: italic;
             color: #d4557b
         };
@@ -33,13 +33,12 @@
         .ace_text-input .ace_search {
             position: absolute!important;
             top: 10px;
-        }; 
+        };  -->
         
     </style>
 
     <script>
-        window.asit_types = new Array();
-        console.log("asit_types: " + window.asit_types != null)
+        
         window.onload = function () {
             var adskWaiter = setInterval(function () {     
             if (window.adsk) {
