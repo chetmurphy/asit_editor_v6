@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        #editor_container {
+           position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 430px; 
+        }
         #editor { 
             position: absolute;
             top: 0;
@@ -36,7 +44,7 @@
         };
 
         .ace_text-input .ace_search {
-            position: absolute!important;
+            position: fixed!important;
             top: 10px;
         }; 
         
@@ -57,7 +65,7 @@
     <!-- <body scroll="no" style="overflow: hidden"> -->
      <body>
 
-        <!-- <div class="w3-top" style="font-size: 11px">
+        <div class="w3-top" style="font-size: 11px">
             <div class="w3-sidebar w3-bar-block w3-light-grey">
                 <a href="#" class="w3-bar-item w3-button" onclick="sidebar()"><i class="fa fa-bars"></i></a>
                 <a href="#" class="w3-bar-item w3-button" onclick="back()"><i class="fa fa-chevron-left"></i></a>
@@ -102,42 +110,47 @@
                     </div>
                 </div>
             </div>
-        </div> -->
-
-        <div class="w3-container editor">
-            <div id="editor"></div>
-
-            <script type="text/javascript" src="./ace_src/ace.js"></script>
-
-            <script type="text/javascript">ace.config.set('basePath', './ace_src');</script>
-
-            <script type="text/javascript" src="./ace_src/ext-language_tools.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-searchbox.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-spellcheck.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-keybinding_menu.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-options.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-statusbar.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-split.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-prompt.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-settings_menu.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-code_lens.js"></script>
-            <script type="text/javascript" src="./ace_src/keybinding-vscode.js"></script>
-            <script type="text/javascript" src="./ace_src/theme-textmate.js"></script>
-            <script type="text/javascript" src="./ace_src/theme-github.js"></script>
-            <!-- <script type="text/javascript" src="../ace_src/worker-yaml.js"></script> -->
-
-            <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
-
-            <script type="text/javascript" src="editor.js"></script>
-
         </div>
-        <div class="bar w3-bar">
-            <button class="w3-button w3-black">Black</button>
-            <button class="w3-button w3-khaki">Khaki</button>
-            <button class="w3-button w3-yellow">Yellow</button>
-            <button class="w3-button w3-red">Red</button>
-            <button class="w3-button w3-purple">Purple</button>
+
+        <div class="editor_container">
+            <div class="w3-container editor">
+                <div id="editor"></div>
+
+                <script type="text/javascript" src="./ace_src/ace.js"></script>
+
+                <script type="text/javascript">ace.config.set('basePath', './ace_src');</script>
+
+                <script type="text/javascript" src="./ace_src/ext-language_tools.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-searchbox.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-spellcheck.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-keybinding_menu.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-options.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-statusbar.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-split.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-prompt.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-settings_menu.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-code_lens.js"></script>
+                <script type="text/javascript" src="./ace_src/keybinding-vscode.js"></script>
+                <script type="text/javascript" src="./ace_src/theme-textmate.js"></script>
+                <script type="text/javascript" src="./ace_src/theme-github.js"></script>
+                <!-- <script type="text/javascript" src="../ace_src/worker-yaml.js"></script> -->
+
+                <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+
+                <script type="text/javascript" src="editor.js"></script>
+
+            </div>
         </div>
+        <div>
+            <div class="bar w3-bar">
+                <button class="w3-button w3-black">Black</button>
+                <button class="w3-button w3-khaki">Khaki</button>
+                <button class="w3-button w3-yellow">Yellow</button>
+                <button class="w3-button w3-red">Red</button>
+                <button class="w3-button w3-purple">Purple</button>
+            </div>
+        </div>
+        
     </body>
 
 
