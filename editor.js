@@ -164,15 +164,15 @@ editor.setOptions({
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: true,
-    autoScrollEditorIntoView: true,
-    vScrollBarAlwaysVisible: true
+    autoScrollEditorIntoView: true
+    // vScrollBarAlwaysVisible: true
     
 })
 
 editor.setTheme("ace/theme/github");
 editor.session.setMode("ace/mode/yaml");
 editor.session.on('change', autosave); //TBD restore and implement
-console.log('Editor created 11');
+console.log('Editor created 12');
 
 
 function adjust_tab_size(ac_data, indent) {
