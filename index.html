@@ -141,7 +141,50 @@
                 <!-- <script type="text/javascript" src="../ace_src/worker-yaml.js"></script> -->
 
                 <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+<style>
+        #editor_container {
+           position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 430px; 
+        }
+        #editor { 
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 400px;
+        }
 
+        #bar { 
+            position: fixed;
+            top: 400px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+        }
+
+
+        .ace-ayu-light .ace_variable.ace_name {
+            font-style: italic;
+            color: #d4557b
+        };
+
+        .ace_text-input .ace_search {
+            position: fixed!important;
+            top: 10px;
+        }; 
+
+        .ace_search {
+            position: fixed!important;
+            top: 10px;
+        }; 
+        
+    </style>
                 <script type="text/javascript" src="editor.js"></script>
 
             </div>
