@@ -12,12 +12,17 @@
 
     <style>
         #editor_container {
-           position: fixed;
+            position: fixed;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
             height: 430px; 
+
+            padding-top: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            padding-left: 32;
         }
         #editor { 
             position: relative;
@@ -28,17 +33,7 @@
             height: 400px;
         }
 
-        #bar { 
-            position: fixed;
-            top: 400px;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-        }
-
-
-
+        
 
 
         
@@ -60,6 +55,7 @@
      <body>
 
         <button style="position: fixed; top: 20; left: -20;">+</button>
+        <button style="position: fixed; top: 40; left: -20;"></button><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
 
         <!-- <div class="w3-top" style="font-size: 11px">
             <div class="w3-sidebar w3-bar-block w3-light-grey">
@@ -109,7 +105,7 @@
         </div> -->
 
         <div class="editor_container">
-            <div class="w3-container editor">
+            <div class="editor">
                 <div id="editor"></div>
 
                 <script type="text/javascript" src="./ace_src/ace.js"></script>
@@ -137,21 +133,15 @@
 
             </div>
         </div>
-        <div class="w3-container" style="opacity:0">
-            <div class="bar w3-bar" style="opacity:100">
-                <button class="w3-button w3-black">Black</button>
-                <button class="w3-button w3-khaki">Khaki</button>
-                <button class="w3-button w3-yellow">Yellow</button>
-                <button class="w3-button w3-red">Red</button>
-                <button class="w3-button w3-purple">Purple</button>
-            </div>
-        </div>
         
     </body>
 
 
 </html>
 
+       
+
+   
        
 
    
