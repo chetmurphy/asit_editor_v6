@@ -169,10 +169,10 @@ editor.setOptions({
     
 })
 
-editor.setTheme("ace/theme/github");
+editor.setTheme("ace/theme/monokai");
 editor.session.setMode("ace/mode/yaml");
 editor.session.on('change', autosave); //TBD restore and implement
-console.log('Editor created 25');
+console.log('Editor created 26');
 
 
 function adjust_tab_size(ac_data, indent) {
