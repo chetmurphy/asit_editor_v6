@@ -164,15 +164,16 @@ editor.setOptions({
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: true,
-    autoScrollEditorIntoView: true
+    autoScrollEditorIntoView: true,
+    showPrintMargin: false
     // vScrollBarAlwaysVisible: true
     
 })
 
-editor.setTheme("ace/theme/monokai");
+editor.setTheme("ace/theme/chrome");
 editor.session.setMode("ace/mode/yaml");
 editor.session.on('change', autosave); //TBD restore and implement
-console.log('Editor created 26');
+console.log('Editor created 27');
 
 
 function adjust_tab_size(ac_data, indent) {
