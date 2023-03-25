@@ -109,9 +109,12 @@
         function rightClick(e) { 
             e.preventDefault(); 
 
+            console.log('right click');
+
             if (document.getElementById("contextMenu") .style.display == "block"){ 
                 hideMenu(); 
             }else{ 
+                console.log('right click - show');
                 var menu = document.getElementById("contextMenu")      
                 menu.style.display = 'block'; 
                 menu.style.left = e.pageX + "px"; 
