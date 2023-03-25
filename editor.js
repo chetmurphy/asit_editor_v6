@@ -168,13 +168,15 @@ editor.setOptions({
     showPrintMargin: false,
     vScrollBarAlwaysVisible: true,
     wrap: true,
+    contenteditable: true,
+    spellcheck: true,
     
 })
 
 editor.setTheme("ace/theme/chrome");
 editor.session.setMode("ace/mode/yaml");
 editor.session.on('change', autosave); //TBD restore and implement
-console.log('Editor created 35');
+console.log('Editor created 36');
 
 
 function adjust_tab_size(ac_data, indent) {
