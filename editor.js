@@ -159,14 +159,15 @@ function autosave() //writes in <div> with id=output
 var editor = ace.edit("editor");
 editor.setOptions({
     maxLines: Infinity,
-    minLines: 100,
+    minLines: 50,
     dragEnabled: true,
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: true,
     autoScrollEditorIntoView: true,
-    showPrintMargin: false
-    // vScrollBarAlwaysVisible: true
+    showPrintMargin: false,
+    vScrollBarAlwaysVisible: true,
+    wrap: true,
     
 })
 

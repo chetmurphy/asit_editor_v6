@@ -8,16 +8,17 @@
     <link rel="shortcut icon" href="#">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
     <style>
-        #editor_container {
+        .editor_container {
             padding-top: 0;
             padding-right: 0;
             padding-bottom: 0;
-            padding-left: 32;
+            padding-left: 28px;
         }
-        #editor { 
+        .editor { 
             position: relative;
             top: 0;
             bottom: 0;
@@ -27,12 +28,26 @@
         }
 
         
+        .button {
+            background-color: transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
 
+        }
+
+        .button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            }
+
+        .material-icons.md-18 { font-size: 18px; color:grey}
 
         
     </style>
 
     <script>
+        
         
         window.onload = function () {
             var adskWaiter = setInterval(function () {     
@@ -47,8 +62,17 @@
     <!-- <body scroll="no" style="overflow: hidden"> -->
      <body>
 
-        <button style="position: fixed; top: 20; left: -20;">+</button>
-        <button style="position: fixed; top: 40; left: -20;"></button><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+        <button class="button" style="position: fixed; top: 20px; left: 0;" title="Create New document"><i class="material-icons md-18">add</i></button>
+        <button class="button" style="position: fixed; top: 50px; left: 0;" title="Upload ASIT file"><i class="material-icons md-18">file_upload</i></button>
+        <button class="button" style="position: fixed; top: 80px; left: 0;" title="Download ASIT file"><i class="material-icons md-18">file_download</i></button>
+        <!-- <button class="button" style="position: fixed; top: 110px; left: 0;" title="Create Modify document"><i class="material-icons md-18">edit</i></button> -->
+        <button class="button" style="position: fixed; top: 140px; left: 0;" title="Generate Report"><i class="material-icons md-18">html</i></button>
+        <button class="button" style="position: fixed; top: 170px; left: 0;" title="Apply Changes"><i class="material-icons md-18">commit</i></button>
+
+        
+        <!-- <button class="button" style="position: fixed; top: 200px; left: 0;" title="Generate Report"><i class="material-icons md-18">html</i></button> -->
+
+        <button class="button" style="position: fixed; top: 230px; left: 0;" title="Editor Settings"><i class="material-icons md-18">settings</i></button>
 
         <!-- <div class="w3-top" style="font-size: 11px">
             <div class="w3-sidebar w3-bar-block w3-light-grey">
