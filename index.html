@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assemble It Editor</title>
 
-    <link rel="shortcut icon" href="#">
-
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     <style>
@@ -103,8 +100,8 @@
         document.oncontextmenu = rightClick; 
 
         function hideMenu() { 
-            document.getElementById("contextMenu") 
-                    .style.display = "none" 
+            //document.getElementById("contextMenu") 
+            //        .style.display = "none" 
         } 
 
         function rightClick(e) { 
@@ -112,30 +109,32 @@
 
             console.log('right click');
 
-            if (document.getElementById("contextMenu") .style.display == "block"){ 
-                hideMenu(); 
-            }else{ 
-                console.log('right click - show');
-                var menu = document.getElementById("contextMenu")      
-                menu.style.display = 'block'; 
-                menu.style.left = e.pageX + "px"; 
-                menu.style.top = e.pageY + "px"; 
-            } 
+            //if (document.getElementById("contextMenu") .style.display == "block"){ 
+            //    hideMenu(); 
+            //}else{ 
+            //    console.log('right click - show');
+            //    var menu = document.getElementById("contextMenu")      
+            //    menu.style.display = 'block'; 
+            //    menu.style.left = e.pageX + "px"; 
+            //    menu.style.top = e.pageY + "px"; 
+            //} 
         } 
     </script>
 
     </head>
-    <!-- <body scroll="no" style="overflow: hidden"> -->
+
      <body>
 
         <button class="button" style="position: fixed; top: 20px; left: 0;" title="Create New document"><i class="material-icons md-18">add</i></button>
         <button class="button" style="position: fixed; top: 50px; left: 0;" title="Upload ASIT file"><i class="material-icons md-18">file_upload</i></button>
         <button class="button" style="position: fixed; top: 80px; left: 0;" title="Download ASIT file"><i class="material-icons md-18">file_download</i></button>
-        <!-- <button class="button" style="position: fixed; top: 110px; left: 0;" title="Create Modify document"><i class="material-icons md-18">edit</i></button> -->
+        
         <button class="button" style="position: fixed; top: 140px; left: 0;" title="Generate Report"><i class="material-icons md-18">html</i></button>
         <button class="button" style="position: fixed; top: 170px; left: 0;" title="Apply Changes"><i class="material-icons md-18">commit</i></button>
 
-        <div id="contextMenu" class="context-menu" style="display: block"> 
+        
+
+        <!-- <div id="contextMenu" class="context-menu" style="display: none"> 
             <ul class="menu"> 
                 <li class="share"><a href="#"><i class="fa fa-share" aria-hidden="true"></i> Share</a></li> 
                 <li class="rename"><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i> Rename</a></li> 
@@ -145,13 +144,20 @@
                 <li class="download"><a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download</a></li> 
                 <li class="trash"><a href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></li> 
             </ul> 
-        </div> 
+        </div>  -->
 
 
         
         <!-- <button class="button" style="position: fixed; top: 200px; left: 0;" title="Generate Report"><i class="material-icons md-18">html</i></button> -->
 
         <button class="button" style="position: fixed; top: 230px; left: 0;" title="Editor Settings"><i class="material-icons md-18">settings</i></button>
+
+        
+        <button class="button" style="position: fixed; top: 290px; left: 0;" title="Create Modify document"><i class="material-icons md-18">copy</i></button> -->
+
+        <button class="button" style="position: fixed; top: 320px; left: 0;" title="Create Modify document"><i class="material-icons md-18">paste</i></button> -->
+
+        <button class="button" style="position: fixed; top: 350px; left: 0;" title="Create Modify document"><i class="material-icons md-18">cut</i></button> -->
 
         <!-- <div class="w3-top" style="font-size: 11px">
             <div class="w3-sidebar w3-bar-block w3-light-grey">
