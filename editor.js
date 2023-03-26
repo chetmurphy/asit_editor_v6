@@ -166,7 +166,7 @@ editor.setOptions({
     enableLiveAutocompletion: true,
     autoScrollEditorIntoView: true,
     showPrintMargin: false,
-    vScrollBarAlwaysVisible: true,
+    vScrollBarAlwaysVisible: false,
     wrap: true,
     spellcheck: true,
     
@@ -175,7 +175,7 @@ editor.setOptions({
 editor.setTheme("ace/theme/chrome");
 editor.session.setMode("ace/mode/yaml");
 editor.session.on('change', autosave); //TBD restore and implement
-console.log('Editor created 53');
+console.log('Editor created 54');
 
 
 function adjust_tab_size(ac_data, indent) {
