@@ -51,12 +51,21 @@
         }
 
         .button:hover {
-            background-color: #374337; /* Green */
-            color: rgb(12, 6, 6);
+            background-color: #ecf7ec; /* Green */
+            color: rgb(100, 97, 97);
             }
 
+        .separator {
+            background-color: transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            height: 12px
+        }
+
         .material-icons.md-18 { font-size: 18px; color:rgb(95, 82, 82);}
-        .material-icons.md-12 { font-size: 12px; color:grey; margin-top:5px }
+        .material-icons.md-12 { font-size: 10px; color:rgb(161, 160, 160); margin-top:5px }
 
         .context-menu { 
             position: absolute; 
@@ -165,18 +174,27 @@
 
 
         <div class="side-commands">
-            <button class="button" title="Create New document" onclick="handleCmd('file', 'new')"><i class="material-icons md-18">add</i></button>
-            <button class="button" title="Upload ASIT file" onclick="handleCmd('file', 'open')"><i class="material-icons md-18">file_upload</i></button>
-            <button class="button" title="Download ASIT file" onclick="handleCmd('file', 'save_as')"><i class="material-icons md-18">file_download</i></button>
-            
-            <button class="button" title="Generate Report"><i class="material-icons md-18">html</i></button>
-            <button class="button" title="Apply Changes" onclick="handleCmd('commit', 'debug')"><i class="material-icons md-18">commit</i></button>
+            <button class="button" title="Undo"><i class="material-icons md-18">undo</i></button> 
+            <button class="button" title="Redo"><i class="material-icons md-18">redo</i></button> 
 
-            <button class="button" title="Editor Settings"><i class="material-icons md-18">settings</i></button>
+            <button class="separator" title=""></button> 
 
             <button class="button" title="Copy"><i class="material-icons md-18">content_copy</i></button> 
             <button class="button" title="Paste"><i class="material-icons md-18">content_paste</i></button> 
             <button class="button" title="Cut"><i class="material-icons md-18">content_cut</i></button> 
+
+            <button class="separator" title=""></button> 
+
+            <button class="button" title="Create New document" onclick="handleCmd('file', 'new')"><i class="material-icons md-18">add</i></button>
+            <button class="button" title="Upload ASIT file" onclick="handleCmd('file', 'open')"><i class="material-icons md-18">file_upload</i></button>
+            <button class="button" title="Download ASIT file" onclick="handleCmd('file', 'save_as')"><i class="material-icons md-18">file_download</i></button>
+            
+            <button class="button" title="Generate Report"><i class="material-icons md-18">sync-alt</i></button>
+            <button class="button" title="Apply Changes" onclick="handleCmd('commit', 'debug')"><i class="material-icons md-18">sync_alt</i></button>
+
+            <button class="button" title="Editor Settings"><i class="material-icons md-18">settings</i></button>
+
+
         </div>
 
         <!-- <div class="w3-top" style="font-size: 11px">
