@@ -178,6 +178,10 @@ editor.session.on('change', autosave); //TBD restore and implement
 
 console.log('Editor created 57');
 
+function commands() {
+    editor.commands.exec("showSettingsMenu", editor);
+}
+
 // var dom = require("ace/lib/dom");
 
 // var consoleEl = dom.createElement("div");
