@@ -176,7 +176,7 @@ editor.setTheme("ace/theme/chrome");
 editor.session.setMode("ace/mode/yaml");
 editor.session.on('change', autosave); //TBD restore and implement
 
-console.log('Editor created 57');
+console.log('Editor created 58');
 
 function commands() {
     editor.commands.exec("showSettingsMenu", editor);
