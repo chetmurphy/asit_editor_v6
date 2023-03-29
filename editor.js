@@ -178,23 +178,23 @@ editor.session.on('change', autosave); //TBD restore and implement
 
 console.log('Editor created 57');
 
-var dom = require("ace/lib/dom");
+// var dom = require("ace/lib/dom");
 
-var consoleEl = dom.createElement("div");
-container.parentNode.appendChild(consoleEl);
-consoleEl.style.cssText = "position:fixed; bottom:1px; right:0;\
-border:1px solid #baf; z-index:100";
+// var consoleEl = dom.createElement("div");
+// container.parentNode.appendChild(consoleEl);
+// consoleEl.style.cssText = "position:fixed; bottom:1px; right:0;\
+// border:1px solid #baf; z-index:100";
 
-var cmdLine = new layout.singleLineEditor(consoleEl);
-cmdLine.setOption("placeholder", "Enter a command...");
-cmdLine.editor = env.editor;
-env.editor.cmdLine = cmdLine;
+// var cmdLine = new layout.singleLineEditor(consoleEl);
+// cmdLine.setOption("placeholder", "Enter a command...");
+// cmdLine.editor = env.editor;
+// env.editor.cmdLine = cmdLine;
 
-env.editor.showCommandLine = function (val) {
-    this.cmdLine.focus();
-    if (typeof val == "string")
-        this.cmdLine.setValue(val, 1);
-};
+// env.editor.showCommandLine = function (val) {
+//     this.cmdLine.focus();
+//     if (typeof val == "string")
+//         this.cmdLine.setValue(val, 1);
+// };
 
 
 
