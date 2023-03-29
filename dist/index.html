@@ -8,39 +8,264 @@
     <link rel="shortcut icon" href="#">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    
     <style>
-        #editor {
-            float: left;
+        .editor_container {
+            padding-top: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            padding-left: 28px;
+        }
+        .editor { 
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 400px;
+        }
+
+        .side-commands {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+
+            display: flex;
+            flex-direction: column;
+
+            background-color: #dde2dd; 
+            color: rgb(25, 18, 18);
+        }
+
+        
+        .button {
+            background-color: transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            display: flex;
+        }
+
+        .button:hover {
+            background-color: #ecf7ec; /* Green */
+            color: rgb(100, 97, 97);
+            }
+
+        .separator {
+            background-color: transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: none;
+            flex-grow: 1;
+            height: 12px;
+        }
+
+        .material-icons.md-18 { 
+            font-size: 18px; 
+            color:rgb(95, 82, 82); 
+            font-weight: 200;
+            opacity: 0.75         
+        }
+
+        .material-icons-outlined.md-18 { 
+            font-size: 18px; 
+            color:rgb(95, 82, 82); 
+            font-weight: 200;
+            opacity: 0.75         
+        }
+
+        .icon-180 {
+            transform: rotate(180deg);
+        }
+
+        .material-symbols-sharp {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 100,
+            'GRAD' 0,
+            'opsz' 48
+        }
+
+        .material-icons.md-12 { 
+            font-size: 10px; 
+            color:rgb(161, 160, 160); 
+            margin-top:5px 
+        }
+
+
+        .context-menu { 
+            position: absolute; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            border-style: solid;
+            border-width: 0.25px;
+            opacity: 1;
+            background:#f1f3f7;
+            color:grey;
+        } 
+        .menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            list-style-type: none;
+            padding-top: 0px;
+            padding-right: 10px;
+            padding-left: 0px;
+            padding-bottom: 0px;
+            font-size: 14px;
+            opacity: 1;
+            background:#f1f3f7;
+            margin: 3px;
+        }
+        .menu > li > a {
+            font: inherit;
+            border: 0;
+            padding: 0px 0px 0px 0px;
             width: 100%;
-            padding: 0px;
-            top: 30px;
-            z-index: -1;
-            };
+            display: flex;
+            align-items: left;
+            position: relative;
+            
+            text-decoration: none;
+      
+            font-weight: 500;
+            transition: 0.5s linear;
+            -webkit-transition: 0.5s linear;
+            -moz-transition: 0.5s linear;
+            -ms-transition: 0.5s linear;
+            -o-transition: 0.5s linear;
+        }
+        .menu > li > a:hover {
+            background:#f1f3f7;
+            color: #4b00ff;
+        }
+        .menu > li > a > i {
+            padding-right: 10px;
+        }
+        .menu > li.trash > a:hover {
+            color: red;
+        }
 
-
-        .ace-ayu-light .ace_variable.ace_name {
-            font-style: italic;
-            color: #d4557b
-        };
+        
     </style>
 
     <script>
-    window.onload = function () {
-        var adskWaiter = setInterval(function () {     
-          if (window.adsk) {
-            clearInterval(adskWaiter);
-          };
-        }, 500);
-      }
+        
+        
+        window.onload = function () {
+            var adskWaiter = setInterval(function () {     
+            if (window.adsk) {
+                clearInterval(adskWaiter);
+            };
+            }, 500);
+        }
+    </script>
+
+    <script>
+        document.onclick = hideMenu; 
+        document.oncontextmenu = rightClick; 
+
+        function hideMenu() { 
+            document.getElementById("contextMenu") 
+                    .style.display = "none" 
+        } 
+
+        function rightClick(e) { 
+            e.preventDefault(); 
+
+            console.log('right click');
+
+            if (document.getElementById("contextMenu") .style.display == "block"){ 
+                hideMenu(); 
+            }else{ 
+                console.log('right click - show');
+                var menu = document.getElementById("contextMenu")      
+                menu.style.display = 'block'; 
+                menu.style.left = e.pageX + "px"; 
+                menu.style.top = (e.pageY - 14) + "px"; 
+            } 
+        }
+        
+        function onMenuEnter(e) { 
+           console.log('onMenuEnter');
+           if (document.getElementById("appMenu").style.display == "none"){ 
+                var menu = document.getElementById("appMenu")  
+                console.log('menu show');    
+                menu.style.display = 'block'; 
+                console.log('left: ' + menu.style.left);  
+                console.log('top: ' + menu.style.top);  
+            }
+        } 
+
+        function onMenuLeave(e) { 
+            console.log('onMenuLeave');
+            if (document.getElementById("appMenu").style.display == "block"){ 
+                var menu = document.getElementById("appMenu")      
+                menu.style.display = 'none'; 
+                console.log('menu hide');    
+            }
+        } 
+        function keyCmd(k, ctrl=false, alt=false, shift=false, meta=false) {
+            document.dispatchEvent(
+                new KeyboardEvent("keydown", {
+                    code: k,
+                    ctrlKey: ctrl,
+                    altKey: alt,
+                    shiftKey: shift,
+                    metaKey: meta,   
+                    bubbles: true
+                })
+            );
+            console.log('keyCmd ');   
+        }
+        
     </script>
 
     </head>
-    <body>
 
-        <div class="w3-top" style="font-size: 11px">
-            <div class="w3-bar w3-light-grey">
+     <body>
+
+        <div id="contextMenu" class="context-menu" style="display: none; z-index: 999;"> 
+            <ul class="menu"> 
+                <li><a href="#"><i class="material-icons md-12">content_paste</i>Paste</a></li> 
+                <li><a href="#"><i class="material-icons md-12">content_copy</i>Copy</a></li> 
+                <li><a href="#"><i class="material-icons md-12">content_cut</i>Cut</a></li> 
+            </ul> 
+        </div> 
+
+        <div id="appMenu" class="w3-dropdown-hover" style="display: none; z-index: 999; position: fixed; top: 0; left: 0;">
+            
+            <div class="w3-dropdown-content w3-bar-block w3-border" >
+                <div style="width: auto">
+                    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="side-commands">
+
+            <button class="button" onclick="commands()" ><i class="material-icons md-18">menu</i></button>
+            <svg width="100%" height="10"></svg>
+            <button class="button" title="Create New document" onclick="handleCmd('file', 'new')"><i class="material-icons md-18">add</i></button>
+            <button class="button" title="Upload ASIT file" onclick="handleCmd('file', 'open')"><i class="material-icons md-18 icon-180">download</i></button>
+            <button class="button" title="Download ASIT file" onclick="handleCmd('file', 'save_as')"><i class="material-icons md-18">download</i></button>
+            <svg width="100%" height="10"></svg>
+            <button class="button" title="Generate Report" onclick="handleCmd('file', 'info')"><i class="material-icons-outlined md-18 ">information</i></button>
+            <button class="button" title="Commit" onclick="handleCmd('file', 'commit')"><i class="material-icons md-18 icon-180 ">logout</i></button>
+            <svg width="100%" height="10"></svg>
+            <button class="button" title="Editor Settings" onclick="handleCmd('settings', '')"><i class="material-icons md-18">settings</i></button>
+
+
+        </div>
+
+        <!-- <div class="w3-top" style="font-size: 11px">
+            <div class="w3-sidebar w3-bar-block w3-light-grey">
                 <a href="#" class="w3-bar-item w3-button" onclick="sidebar()"><i class="fa fa-bars"></i></a>
                 <a href="#" class="w3-bar-item w3-button" onclick="back()"><i class="fa fa-chevron-left"></i></a>
                 <a href="#" class="w3-bar-item w3-button" onclick="next()"><i class="fa fa-chevron-right"></i></a>
@@ -84,40 +309,57 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <div class="editor_container">
+            <div class="editor">
+                <div id="editor"></div>
+
+                <script type="text/javascript" src="./ace_src/ace.js"></script>
+
+                <script type="text/javascript">ace.config.set('basePath', './ace_src');</script>
+
+                <script type="text/javascript" src="./ace_src/ext-language_tools.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-searchbox.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-spellcheck.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-keybinding_menu.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-options.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-statusbar.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-split.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-prompt.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-settings_menu.js"></script>
+                <script type="text/javascript" src="./ace_src/ext-code_lens.js"></script>
+                <script type="text/javascript" src="./ace_src/keybinding-vscode.js"></script>
+                <script type="text/javascript" src="./ace_src/theme-textmate.js"></script>
+                <script type="text/javascript" src="./ace_src/theme-github.js"></script>
+                <!-- <script type="text/javascript" src="../ace_src/worker-yaml.js"></script> -->
+
+                <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+
+                <script type="text/javascript" src="editor.js"></script>
+
+            </div>
         </div>
-
-        <div>
-            <div id="editor"></div>
-
-            <script type="text/javascript" src="./ace_src/ace.js"></script>
-
-            <script type="text/javascript">ace.config.set('basePath', './ace_src');</script>
-
-            <script type="text/javascript" src="./ace_src/ext-language_tools.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-searchbox.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-spellcheck.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-keybinding_menu.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-options.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-statusbar.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-split.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-prompt.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-settings_menu.js"></script>
-            <script type="text/javascript" src="./ace_src/ext-code_lens.js"></script>
-            <script type="text/javascript" src="./ace_src/keybinding-vscode.js"></script>
-            <script type="text/javascript" src="./ace_src/theme-textmate.js"></script>
-            <script type="text/javascript" src="./ace_src/theme-github.js"></script>
-            <!-- <script type="text/javascript" src="../ace_src/worker-yaml.js"></script> -->
-
-            <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js" integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
-
-        <script type="text/javascript" src="editor.js"></script>
-
-        </div>
+        
     </body>
+
+            <!-- <button class="button" title="Undo"><i class="material-icons md-18">undo</i></button> 
+            <button class="button" title="Redo"><i class="material-icons md-18">redo</i></button> 
+
+            <button class="separator" title=""></button> 
+
+            <button class="button" title="Copy"><i class="material-icons md-18">content_copy</i></button> 
+            <button class="button" title="Paste"><i class="material-icons md-18">content_paste</i></button> 
+            <button class="button" title="Cut"><i class="material-icons md-18">content_cut</i></button> 
+
+            <button class="separator" title=""></button>  -->
 
 
 </html>
 
+       
+
+   
        
 
    
